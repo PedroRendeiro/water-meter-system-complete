@@ -48,12 +48,17 @@ After the installation of the environment and the dependencies you need to copy 
 This can be done by a git-clone command:
 
 ```
-git clone https://github.com/jomjol/water-meter-system-complete/tree/Raspberry-V3
+git clone -b Raspberry-V3 https://github.com/jomjol/water-meter-system-complete
 ``` 
 
-Then you can run the server simply with:
+Then you can run the server. **Due to a problem with OpenCV a library needs to be loaded in advance. Start the code with the following command:**
 
-`python3 wasseruhr.py`
+
+```
+cd water-meter-system-complete/code
+LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1 python3 wasseruhr.py
+```
+
 
 ## Running in background
 
@@ -64,7 +69,7 @@ sudo apt-get install nodejs npm
 sudo npm install pm2 -g
 ```
 
-After this you can use ```pm2 start 'python3 wasseruhr.py'``` to have it running as a service. Be patient, it takes about 30 seconds to start and respond on the http request.
+After this you can use ```pm2 start 'LD_PRELOAD=/usr/lib/arm-linux-gnueabihf/libatomic.so.1 python3 wasseruhr.py'``` to have it running as a service. Be patient, it takes about 30 seconds to start and respond on the http request.
 
 In order to have it persistent also after a restart or breakdown of the server do the following after the server has started:
 ``` 

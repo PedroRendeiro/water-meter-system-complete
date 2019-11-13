@@ -7,17 +7,23 @@ The result is a HTTP-server, that takes an image as input, processes it and give
 
 The information about the usage can be found in the [main branch](https://github.com/jomjol/water-meter-system-complete)(Version 3.0.0). This is for sure not the most lean installation procedure as most probably way much less packages are needed as installed. But in order to remove error messages I followed the suggestions from different blogs to quickly make progress.
 
+## Changelog
+##### 2.0 Correction / detailed
+* Base is a Raspberian Buster Lite (instead of Stretch Lite)
+* Correction of minor changes in code (#keras)
+##### 1.0 Initial Version
 
 ## Installation
 
 This installation has been tested on a Raspberry Pi 3B.
 
-Starting point is an installed Raspberian Strecht Lite. It should also work with the desktop version.
+Starting point is an installed **Raspberian Buster Lite**. It should also work with the desktop version.
 
 #### Update and Install PIP3
 
 ```
 sudo apt-get update
+sudo apt-get upgrade
 sudo apt-get install python3-pip
 ```
 
@@ -38,6 +44,12 @@ pip3 install opencv-python pillow requests
 
 After the installation of the environment and the dependencies you need to copy the code in a dedicated directory.
 **Attention use the code in this branch, as there are some minor changes needed**
+
+This can be done by a git-clone command:
+
+```
+git clone https://github.com/jomjol/water-meter-system-complete/tree/Raspberry-V3
+``` 
 
 Then you can run the server simply with:
 
